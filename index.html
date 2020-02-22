@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        
+        <title>Hearthstone</title>
+    </head>
+
+    <body onload="lataaSisalto(0)">
+        
+        <!-- Navigointipalkki -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapse_target">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" type="button" onclick="lataaSisalto(0)">Etusivu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" type="button" onclick="lataaSisalto(1)">Tietoa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" type="button" onclick="lataaSisalto(2)">Pakat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" type="button" onclick="lataaSisalto(3)">Battlegrounds</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+        <!-- Sisältöalue -->
+        <div class="container-fluid bg-pergament min-vh-100">
+			<div class="row">
+                <div class="col" id="sisalto"></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="page-footer font-small special-color-dark pt-4">
+            <div class="container-fluid text-center text-md-left">
+                <div class="row">
+                    <div class="col-md-6 mt-md-0 mt-3 ml-4">
+                        <h6 class="text-uppercase">Hearthstone tietosivusto</h6>
+                        <p>Projekti toteutettu Web- ja mobiilikäyttöliittymät kurssin harjoitustyönä</p>
+                    </div>
+                    <hr class="clearfix w-100 d-md-none pb-3">
+                    <div class="col-md-3 mb-md-0 mb-3">
+                        <h6 class="text-uppercase">Sivustolla käytetyn materiaalin linkit</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="https://hearthstone.gamepedia.com/Hearthstone_Wiki" target="_blank">Hearthstone wiki</a></li>
+                            <li><a href="https://www.hearthstonetopdecks.com/" target="_blank">hearthstonetopdecks</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright text-center special-color-darker py-1">
+                <small>© 2020 Henri Mönkkönen <a href="#">henri.monkkonen@edu.savonia.fi</a></small>
+            </div>
+        </footer>
+
+        
+        <script>
+            var lataaSisalto = function(index) {
+                if (index == 0) {
+                    document.getElementById("sisalto").innerHTML = etusivu;
+                }
+                else if (index == 1) {
+                    document.getElementById("sisalto").innerHTML = tietoa;
+                }
+                else if (index == 2) {
+                    document.getElementById("sisalto").innerHTML = pakat;
+                }
+                else if (index == 3) {
+                    document.getElementById("sisalto").innerHTML = battlegrounds;
+                }
+
+                paikannin = index;
+            }
+
+            $(".navbar-nav .nav-link").on("click", function(){
+                $(".navbar-nav").find(".active").removeClass("active");
+                $(this).addClass("active");
+            });
+            
+            ////////////
+            // Etusivu
+            ////////////
+            var etusivu =   "<div class=\"mx-4 my-4 min-vh-100\">\
+                                <div class=\"row container mx-auto justify-content-center\">\
+                                    <h1>Mikä on Hearthstone?</h1>\
+                                    <p>Hearthstone on Blizzard Entertainmentin kehittämä ilmainen strateginen korttipeli. Peliä voi nykyään pelata \
+                                    tietokoneen lisäksi myös kaikilla mobiililaitteilla. Hearthstone on kahden pelaajan vuoroperusteinen korttipeli, \
+                                    jossa on tarkoitus saada vastustajan elämäpisteet loppumaan ennen omia. Strategisen pelistä tekee se, että pelaajien \
+                                    käyttämät 30 kortin pakat ovat pelaajien itsensä täysin kustomoitavissa. Pelaajat valitsevat ennen pelin alkua \
+                                    itselleen hahmon yhdeksästä eri vaihtoehdosta, joilla kaikilla on uniikkeja ominaisuuksia ja kortteja. Hearthstone \
+                                    on myös yksi seuratuimmista e-urheilun peleistä maailmalla.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing \
+                                    elit. Proin est diam, vulputate sed risus nec, fermentum mattis tortor. Donec nec volutpat lectus. Pellentesque \
+                                    fringilla enim id est commodo, nec scelerisque risus varius. Fusce et efficitur nibh. Cras id libero velit. Aliquam \
+                                    bibendum justo et tellus convallis, quis ullamcorper turpis volutpat. Praesent nibh mauris, condimentum eget neque \
+                                    in, feugiat facilisis nunc. Nulla sit amet porttitor ligula. Sed sit amet nibh tristique, auctor lacus eget, feugiat \
+                                    magna. Duis diam odio, maximus vel posuere vitae, efficitur et velit. Cras rutrum est enim.</p>\
+                                </div>\
+                                <hr />\
+                                <div class=\"row my-4\">\
+                                    <div class=\"col-sm-12 col-xl-4 embed-responsive embed-responsive-16by9 my-2\">\
+                                        <iframe class=\"embedded-responsive-item\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/8GHv3I9aDM8\" \
+                                        frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\
+                                    </div>\
+                                    <div class=\"col-sm-12 col-xl-8\">\
+                                        <p>Descent of Dragons lisäosa uusine kortteineen ja strategioineen on julkaistu 10.12.2019. Lisäosa tuo mukanaan \
+                                        uuden pelityylin, jonka perustana toimii Galakrond-hahmokortti, josta on viisi eri muotoa viidelle eri hahmolle. \
+                                        Korteissa oleva uusi avainsana ”invoke” parantaa Galakrond-kortin ominaisuuksia ja voimia. Lisäosa esittelee myös \
+                                        uusia sivutehtävä-kortteja, jotka paljon nopeampi suorittaa kuin tavalliset tehtävät, eivätkä sivutehtävät \
+                                        ole Legendary-kortteja, joten niitä voi sisällyttää pakkaan kaksi niin halutessaan.</p><p>Lorem ipsum dolor sit amet, \
+                                        consectetur adipiscing elit. Proin est diam, vulputate sed risus nec, fermentum mattis tortor. Donec nec volutpat \
+                                        lectus. Pellentesque fringilla enim id est commodo, nec scelerisque risus varius. Fusce et efficitur nibh. Cras id \
+                                        libero velit. Aliquam bibendum justo et tellus convallis, quis ullamcorper turpis volutpat. Praesent nibh mauris, \
+                                        condimentum eget neque in, feugiat facilisis nunc. Nulla sit amet porttitor ligula. Sed sit amet nibh tristique, \
+                                        auctor lacus eget, feugiat magna. Duis diam odio, maximus vel posuere vitae, efficitur et velit. Cras rutrum est enim.</p>\
+                                    </div>\
+                                </div>\
+                                <hr />\
+                                <div class=\"row my-4\">\
+                                    <div class=\"col-lg-12 col-xl-8\">\
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est diam, vulputate sed risus nec, fermentum mattis \
+                                        tortor. Donec nec volutpat lectus. Pellentesque fringilla enim id est commodo, nec scelerisque risus varius. Fusce et \
+                                        efficitur nibh. Cras id libero velit. Aliquam bibendum justo et tellus convallis, quis ullamcorper turpis volutpat. \
+                                        Praesent nibh mauris, condimentum eget neque in, feugiat facilisis nunc. Nulla sit amet porttitor ligula. Sed sit \
+                                        amet nibh tristique, auctor lacus eget, feugiat magna. Duis diam odio, maximus vel posuere vitae, efficitur et velit. \
+                                        Cras rutrum est enim. Maecenas elementum, ante sed semper egestas, tortor sapien finibus neque, at vulputate justo \
+                                        lectus a ante. Nulla auctor neque quis rhoncus sollicitudin. Morbi fermentum vestibulum magna. Nulla mollis venenatis \
+                                        augue vel ultrices. Donec posuere cursus sem et interdum. Sed non erat elit. Pellentesque scelerisque arcu vitae ipsum \
+                                        blandit, vitae scelerisque mi fringilla. Nulla facilisi. Vestibulum mollis dui a enim pharetra, quis venenatis purus \
+                                        elementum. In feugiat risus sed tempor porttitor. Etiam facilisis diam maximus risus ultricies vehicula. Integer sed \
+                                        viverra risus, non porta tortor. Nulla lacinia orci nec sodales mattis. Aenean vehicula, sem at ultricies porta, eros \
+                                        felis dapibus ante, at tincidunt diam magna eget turpis. Fusce porttitor at odio ac pretium. Maecenas semper semper \
+                                        massa, non suscipit nisl cursus in. Fusce sed lacinia ex.</p>\
+                                    </div>\
+                                    <div class=\"col-lg-12 col-xl-4\">\
+                                        <table class=\"right\">\
+                                            <tr>\
+                                                <td><b>0</b></td>\
+                                                <td><b>BACKSTAB</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>0</b></td>\
+                                                <td><b>SHADOWSTEP</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>1</b></td>\
+                                                <td><b>PHARAOH CAT</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>1</b></td>\
+                                                <td><b>PRAISE GALAKROND!</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>EVISCERATE</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>SAP</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>EVIL MISCREANT</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>EDWIN VANCLEEF</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>SI:7 AGENT</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>SEAL FATE</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>4</b></td>\
+                                                <td><b>DEVOTED MANIAC</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>5</b></td>\
+                                                <td><b>FACELESS CORRUPTOR</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>5</b></td>\
+                                                <td><b>LEEROY JENKINS</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>5</b></td>\
+                                                <td><b>SHIELD OF GALAKROND</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>6</b></td>\
+                                                <td><b>FLIK SKYSHIV</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>6</b></td>\
+                                                <td><b>HEISTBARON TOGWAGGLE</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>6</b></td>\
+                                                <td><b>KRONX DRAGONHOOF</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>7</b></td>\
+                                                <td><b>GALAKROND, THE NIGHTMARE</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                        </table>\
+                                    </div>\
+                                </div>\
+                            </div>";
+            
+            
+            ///////////
+            // Tietoa
+            ///////////
+            var tietoa =    "<div class=\"mx-4 my-4\">\
+                                <div class=\"row justify-content-center my-8\">\
+                                    <div class=\"row col-12 justify-content-center\">\
+                                        <h4>Navigointi</h4>\
+                                    </div>\
+                                    <div class=\"row my-2\">\
+                                        <div class=\" col-sm-6 col-md-4 col-xl-3 flex justify-content-center\">\
+                                            <a class=\"linkki\" href=\"#hahmot\">Hahmot</a>\
+                                        </div>\
+                                        <div class=\" col-sm-6 col-md-4 col-xl-3 flex justify-content-center\">\
+                                            <a class=\"linkki\" href=\"#korttityypit\">Korttityypit</a>\
+                                        </div>\
+                                        <div class=\" col-sm-6 col-md-4 col-xl-3 flex justify-content-center\">\
+                                            <a class=\"linkki\" href=\"#korttienluokat\">Korttien luokat</a>\
+                                        </div>\
+                                        <div class=\" col-sm-6 col-md-4 col-xl-3 flex justify-content-center\">\
+                                            <a class=\"linkki\" href=\"#korttienerikoiskyvyt\">Korttien erikoiskyvyt</a>\
+                                        </div>\
+                                        <div class=\" col-sm-6 col-md-4 col-xl-3 flex justify-content-center\">\
+                                            <a class=\"linkki\" href=\"#harvinaisuus\">Harvinaisuus</a>\
+                                        </div>\
+                                        <div class=\" col-sm-6 col-md-4 col-xl-3 flex justify-content-center\">\
+                                            <a class=\"linkki\" href=\"#sijoittuminen\">Sijoittuminen</a>\
+                                        </div>\
+                                        <div class=\" col-sm-6 col-md-4 col-xl-3 flex justify-content-center\">\
+                                            <a class=\"linkki\" href=\"#kultajaarcanedust\">Kulta ja arcane dust</a>\
+                                        </div>\
+                                        <div class=\" col-sm-6 col-md-4 col-xl-3 flex justify-content-center\">\
+                                            <a class=\"linkki\" href=\"#lisaosat\">Lisäosat</a>\
+                                        </div>\
+                                    </div>\
+                                </div>\
+                                <hr class=\"my-4\" />\
+                                <div class=\"row mx-auto justify-content-center\">\
+                                    <div class=\"col-sm-*\"><h1 id=\"hahmot\"><u>Hahmot</u></h1></div>\
+                                </div>\
+                                <div class=\"row\">\
+                                    <div class=\"col-lg-6 col-xl-4 flex justify-content-center\">\
+                                        <a href=\"https://hearthstone.gamepedia.com/Druid\" target=\"_blank\"><img src=\"Kuvat/Heros/Druid.png\"></a>\
+                                    </div>\
+                                    <div class=\"col-lg-6 col-xl-4 flex justify-content-center\">\
+                                        <a href=\"https://hearthstone.gamepedia.com/Hunter\" target=\"_blank\"><img src=\"Kuvat/Heros/Hunter.png\"></a>\
+                                    </div>\
+                                    <div class=\"col-lg-6 col-xl-4 flex justify-content-center\">\
+                                        <a href=\"https://hearthstone.gamepedia.com/Mage\" target=\"_blank\"><img src=\"Kuvat/Heros/Mage.png\"></a>\
+                                    </div>\
+                                    <div class=\"col-lg-6 col-xl-4 flex justify-content-center\">\
+                                        <a href=\"https://hearthstone.gamepedia.com/Paladin\" target=\"_blank\"><img src=\"Kuvat/Heros/Paladin.png\"></a>\
+                                    </div>\
+                                    <div class=\"col-lg-6 col-xl-4 flex justify-content-center\">\
+                                        <a href=\"https://hearthstone.gamepedia.com/Priest\" target=\"_blank\"><img src=\"Kuvat/Heros/Priest.png\"></a>\
+                                    </div>\
+                                    <div class=\"col-lg-6 col-xl-4 flex justify-content-center\">\
+                                        <a href=\"https://hearthstone.gamepedia.com/Rogue\" target=\"_blank\"><img src=\"Kuvat/Heros/Rogue.png\"></a>\
+                                    </div>\
+                                    <div class=\"col-lg-6 col-xl-4 flex justify-content-center\">\
+                                        <a href=\"https://hearthstone.gamepedia.com/Shaman\" target=\"_blank\"><img src=\"Kuvat/Heros/Shaman.png\"></a>\
+                                    </div>\
+                                    <div class=\"col-lg-6 col-xl-4 flex justify-content-center\">\
+                                        <a href=\"https://hearthstone.gamepedia.com/Warlock\" target=\"_blank\"><img src=\"Kuvat/Heros/Warlock.png\"></a>\
+                                    </div>\
+                                    <div class=\"col-lg-6 col-xl-4 flex justify-content-center\">\
+                                        <a href=\"https://hearthstone.gamepedia.com/Warrior\" target=\"_blank\"><img src=\"Kuvat/Heros/Warrior.png\"></a>\
+                                    </div>\
+                                </div>\
+                                <hr class=\"my-4\" />\
+                                <div class=\"row my-4\">\
+                                    <div class=\"row mx-auto my-2\">\
+                                        <div class=\"col-sm-*\"><h1 id=\"korttityypit\"><u>Korttityypit</u></h1></div>\
+                                    </div>\
+                                    <row class=\"row justify-content-center\">\
+                                        <div class=\"col-sm-10\">\
+                                            <p>Hearthstonessa on neljä korttityyppiä ja ne ovat käskyläiset (minion), loitsut (spell), aseet (weapon) ja \
+                                            hahmokortit (hero card). Jokaisen kortin pelaamiseen pelaaja tarvitsee manaa. Kaikkien korttien vasemmassa \
+                                            yläreunassa on merkitty, kuinka paljon manaa sen kortin pelaaminen tarvitsee. Normaalisti kortin mana-arvo on \
+                                            0-10, koska pelaajalla voi olla käytössään manaa maksimissaan 10 yhden vuoron aikana. Käskyläiskorteissa \
+                                            hyökkäysvoima on esitetty kortin vasemmassa alakulmassa ja elämäpisteet oikeassa alakulmassa. Asekorteissa \
+                                            hyökkäysvoima on esitetty kortin oikeassa alakulmassa ja kestävyys vasemmassa alakulmassa. Loitsukorteilla \
+                                            on pelkästään mana-arvo ja selite siitä, mitä kortti tekee. Hahmokortit luovat pelaajalle kilpipisteitä ja \
+                                            näiden pisteiden määrä on esitetty kortin vasemmassa alakulmassa. Kortissa on myös yleensä selite siitä, mitä \
+                                            tapahtuu, kun kortin pelaa.</p>\
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est diam, vulputate sed risus nec, fermentum mattis \
+                                            tortor. Donec nec volutpat lectus. Pellentesque fringilla enim id est commodo, nec scelerisque risus varius. Fusce et \
+                                            efficitur nibh. Cras id libero velit. Aliquam bibendum justo et tellus convallis, quis ullamcorper turpis volutpat. \
+                                            Praesent nibh mauris, condimentum eget neque in, feugiat facilisis nunc. Nulla sit amet porttitor ligula. Sed sit \
+                                            amet nibh tristique, auctor lacus eget, feugiat magna. Duis diam odio, maximus vel posuere vitae, efficitur et velit. \
+                                            Cras rutrum est enim. Maecenas elementum, ante sed semper egestas, tortor sapien finibus neque, at vulputate justo \
+                                            lectus a ante. Nulla auctor neque quis rhoncus sollicitudin. Morbi fermentum vestibulum magna. Nulla mollis venenatis \
+                                            augue vel ultrices. Donec posuere cursus sem et interdum. Sed non erat elit. Pellentesque scelerisque arcu vitae ipsum \
+                                            blandit, vitae scelerisque mi fringilla. Nulla facilisi. Vestibulum mollis dui a enim pharetra, quis venenatis purus \
+                                            elementum. In feugiat risus sed tempor porttitor. Etiam facilisis diam maximus risus ultricies vehicula. Integer sed \
+                                            viverra risus, non porta tortor. Nulla lacinia orci nec sodales mattis. Aenean vehicula, sem at ultricies porta, eros \
+                                            felis dapibus ante, at tincidunt diam magna eget turpis. Fusce porttitor at odio ac pretium. Maecenas semper semper \
+                                            massa, non suscipit nisl cursus in. Fusce sed lacinia ex.</p>\
+                                        </div>\
+                                    </row>\
+                                </div>\
+                                <hr class=\"my-4\" />\
+                                <div class=\"row my-4\">\
+                                    <div class=\"row mx-auto my-2\">\
+                                        <div class=\"col-sm-*\"><h1 id=\"korttienluokat\"><u>Korttien luokat</u></h1></div>\
+                                    </div>\
+                                    <row class=\"row justify-content-center\">\
+                                        <div class=\"col-sm-10\">\
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est diam, vulputate sed risus nec, fermentum mattis \
+                                            tortor. Donec nec volutpat lectus. Pellentesque fringilla enim id est commodo, nec scelerisque risus varius. Fusce et \
+                                            efficitur nibh. Cras id libero velit. Aliquam bibendum justo et tellus convallis, quis ullamcorper turpis volutpat. \
+                                            Praesent nibh mauris, condimentum eget neque in, feugiat facilisis nunc. Nulla sit amet porttitor ligula. Sed sit \
+                                            amet nibh tristique, auctor lacus eget, feugiat magna. Duis diam odio, maximus vel posuere vitae, efficitur et velit. \
+                                            Cras rutrum est enim. Maecenas elementum, ante sed semper egestas, tortor sapien finibus neque, at vulputate justo \
+                                            lectus a ante. Nulla auctor neque quis rhoncus sollicitudin. Morbi fermentum vestibulum magna. Nulla mollis venenatis \
+                                            augue vel ultrices. Donec posuere cursus sem et interdum. Sed non erat elit. Pellentesque scelerisque arcu vitae ipsum \
+                                            blandit, vitae scelerisque mi fringilla. Nulla facilisi. Vestibulum mollis dui a enim pharetra, quis venenatis purus \
+                                            elementum. In feugiat risus sed tempor porttitor. Etiam facilisis diam maximus risus ultricies vehicula. Integer sed \
+                                            viverra risus, non porta tortor. Nulla lacinia orci nec sodales mattis. Aenean vehicula, sem at ultricies porta, eros \
+                                            felis dapibus ante, at tincidunt diam magna eget turpis. Fusce porttitor at odio ac pretium. Maecenas semper semper \
+                                            massa, non suscipit nisl cursus in. Fusce sed lacinia ex.</p>\
+                                        </div>\
+                                    </row>\
+                                </div>\
+                                <hr class=\"my-4\" />\
+                                <div class=\"row my-4\">\
+                                    <div class=\"row mx-auto my-2\">\
+                                        <div class=\"col-sm-*\"><h1 id=\"korttienerikoiskyvyt\"><u>Korttien erikoiskyvyt</u></h1></div>\
+                                    </div>\
+                                    <row class=\"row justify-content-center\">\
+                                        <div class=\"col-sm-10\">\
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est diam, vulputate sed risus nec, fermentum mattis \
+                                            tortor. Donec nec volutpat lectus. Pellentesque fringilla enim id est commodo, nec scelerisque risus varius. Fusce et \
+                                            efficitur nibh. Cras id libero velit. Aliquam bibendum justo et tellus convallis, quis ullamcorper turpis volutpat. \
+                                            Praesent nibh mauris, condimentum eget neque in, feugiat facilisis nunc. Nulla sit amet porttitor ligula. Sed sit \
+                                            amet nibh tristique, auctor lacus eget, feugiat magna. Duis diam odio, maximus vel posuere vitae, efficitur et velit. \
+                                            Cras rutrum est enim. Maecenas elementum, ante sed semper egestas, tortor sapien finibus neque, at vulputate justo \
+                                            lectus a ante. Nulla auctor neque quis rhoncus sollicitudin. Morbi fermentum vestibulum magna. Nulla mollis venenatis \
+                                            augue vel ultrices. Donec posuere cursus sem et interdum. Sed non erat elit. Pellentesque scelerisque arcu vitae ipsum \
+                                            blandit, vitae scelerisque mi fringilla. Nulla facilisi. Vestibulum mollis dui a enim pharetra, quis venenatis purus \
+                                            elementum. In feugiat risus sed tempor porttitor. Etiam facilisis diam maximus risus ultricies vehicula. Integer sed \
+                                            viverra risus, non porta tortor. Nulla lacinia orci nec sodales mattis. Aenean vehicula, sem at ultricies porta, eros \
+                                            felis dapibus ante, at tincidunt diam magna eget turpis. Fusce porttitor at odio ac pretium. Maecenas semper semper \
+                                            massa, non suscipit nisl cursus in. Fusce sed lacinia ex.</p>\
+                                        </div>\
+                                    </row>\
+                                </div>\
+                                <hr class=\"my-4\" />\
+                                <div class=\"row my-4\">\
+                                    <div class=\"row mx-auto my-2\">\
+                                        <div class=\"col-sm-*\"><h1 id=\"harvinaisuus\"><u>Harvinaisuus</u></h1></div>\
+                                    </div>\
+                                    <row class=\"row justify-content-center\">\
+                                        <div class=\"col-sm-10\">\
+                                            <p>Keskellä korttia on jalokivi, joka kuvaa kuinka harvinainen kortti on. Jos kortissa ei ole jalokiveä, se on ilmainen \
+                                            kortti ja se kuuluu perus kokoelmaan, joka on kaikilla pelaajilla sen jälkeen, kun he ovat pelanneet tutoriaalin läpi. \
+                                            Jalokiviä on neljää eri väriä; valkea, sininen, violetti ja kultainen. Näillä kuvataan kortin harvinaisuutta ja yleensä \
+                                            myös harvinaisemmat kortit ovat parempia ja tehokkaampia. Mitä harvinaisempi kortti on, sitä epätodennäköisemmin se \
+                                            löytyy ostetuista korttipaketeista ja sitä kalliimpi sellainen on itse tehdä. Harvinaisimpia kortteja, eli legendaarisia \
+                                            kortteja ei voi omistaa kuin yhden kopion. </p>\
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est diam, vulputate sed risus nec, fermentum mattis \
+                                            tortor. Donec nec volutpat lectus. Pellentesque fringilla enim id est commodo, nec scelerisque risus varius. Fusce et \
+                                            efficitur nibh. Cras id libero velit. Aliquam bibendum justo et tellus convallis, quis ullamcorper turpis volutpat. \
+                                            Praesent nibh mauris, condimentum eget neque in, feugiat facilisis nunc. Nulla sit amet porttitor ligula. Sed sit \
+                                            amet nibh tristique, auctor lacus eget, feugiat magna. Duis diam odio, maximus vel posuere vitae, efficitur et velit. \
+                                            Cras rutrum est enim. Maecenas elementum, ante sed semper egestas, tortor sapien finibus neque, at vulputate justo \
+                                            lectus a ante. Nulla auctor neque quis rhoncus sollicitudin. Morbi fermentum vestibulum magna. Nulla mollis venenatis \
+                                            augue vel ultrices. Donec posuere cursus sem et interdum. Sed non erat elit. Pellentesque scelerisque arcu vitae ipsum \
+                                            blandit, vitae scelerisque mi fringilla. Nulla facilisi. Vestibulum mollis dui a enim pharetra, quis venenatis purus \
+                                            elementum. In feugiat risus sed tempor porttitor. Etiam facilisis diam maximus risus ultricies vehicula. Integer sed \
+                                            viverra risus, non porta tortor. Nulla lacinia orci nec sodales mattis. Aenean vehicula, sem at ultricies porta, eros \
+                                            felis dapibus ante, at tincidunt diam magna eget turpis. Fusce porttitor at odio ac pretium. Maecenas semper semper \
+                                            massa, non suscipit nisl cursus in. Fusce sed lacinia ex.</p>\
+                                        </div>\
+                                    </row>\
+                                </div>\
+                                <hr class=\"my-4\" />\
+                                <div class=\"row my-4\">\
+                                    <div class=\"row mx-auto my-2\">\
+                                        <div class=\"col-sm-*\"><h1 id=\"sijoittuminen\"><u>Sijoittuminen</u></h1></div>\
+                                    </div>\
+                                    <row class=\"row justify-content-center\">\
+                                        <div class=\"col-sm-10\">\
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est diam, vulputate sed risus nec, fermentum mattis \
+                                            tortor. Donec nec volutpat lectus. Pellentesque fringilla enim id est commodo, nec scelerisque risus varius. Fusce et \
+                                            efficitur nibh. Cras id libero velit. Aliquam bibendum justo et tellus convallis, quis ullamcorper turpis volutpat. \
+                                            Praesent nibh mauris, condimentum eget neque in, feugiat facilisis nunc. Nulla sit amet porttitor ligula. Sed sit \
+                                            amet nibh tristique, auctor lacus eget, feugiat magna. Duis diam odio, maximus vel posuere vitae, efficitur et velit. \
+                                            Cras rutrum est enim. Maecenas elementum, ante sed semper egestas, tortor sapien finibus neque, at vulputate justo \
+                                            lectus a ante. Nulla auctor neque quis rhoncus sollicitudin. Morbi fermentum vestibulum magna. Nulla mollis venenatis \
+                                            augue vel ultrices. Donec posuere cursus sem et interdum. Sed non erat elit. Pellentesque scelerisque arcu vitae ipsum \
+                                            blandit, vitae scelerisque mi fringilla. Nulla facilisi. Vestibulum mollis dui a enim pharetra, quis venenatis purus \
+                                            elementum. In feugiat risus sed tempor porttitor. Etiam facilisis diam maximus risus ultricies vehicula. Integer sed \
+                                            viverra risus, non porta tortor. Nulla lacinia orci nec sodales mattis. Aenean vehicula, sem at ultricies porta, eros \
+                                            felis dapibus ante, at tincidunt diam magna eget turpis. Fusce porttitor at odio ac pretium. Maecenas semper semper \
+                                            massa, non suscipit nisl cursus in. Fusce sed lacinia ex.</p>\
+                                        </div>\
+                                    </row>\
+                                </div>\
+                                <hr class=\"my-4\" />\
+                                <div class=\"row my-4\">\
+                                    <div class=\"row mx-auto my-2\">\
+                                        <div class=\"col-sm-*\"><h1 id=\"kultajaarcanedust\"><u>Kulta ja arcane dust</u></h1></div>\
+                                    </div>\
+                                    <row class=\"row justify-content-center\">\
+                                        <div class=\"col-sm-10\">\
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est diam, vulputate sed risus nec, fermentum mattis \
+                                            tortor. Donec nec volutpat lectus. Pellentesque fringilla enim id est commodo, nec scelerisque risus varius. Fusce et \
+                                            efficitur nibh. Cras id libero velit. Aliquam bibendum justo et tellus convallis, quis ullamcorper turpis volutpat. \
+                                            Praesent nibh mauris, condimentum eget neque in, feugiat facilisis nunc. Nulla sit amet porttitor ligula. Sed sit \
+                                            amet nibh tristique, auctor lacus eget, feugiat magna. Duis diam odio, maximus vel posuere vitae, efficitur et velit. \
+                                            Cras rutrum est enim. Maecenas elementum, ante sed semper egestas, tortor sapien finibus neque, at vulputate justo \
+                                            lectus a ante. Nulla auctor neque quis rhoncus sollicitudin. Morbi fermentum vestibulum magna. Nulla mollis venenatis \
+                                            augue vel ultrices. Donec posuere cursus sem et interdum. Sed non erat elit. Pellentesque scelerisque arcu vitae ipsum \
+                                            blandit, vitae scelerisque mi fringilla. Nulla facilisi. Vestibulum mollis dui a enim pharetra, quis venenatis purus \
+                                            elementum. In feugiat risus sed tempor porttitor. Etiam facilisis diam maximus risus ultricies vehicula. Integer sed \
+                                            viverra risus, non porta tortor. Nulla lacinia orci nec sodales mattis. Aenean vehicula, sem at ultricies porta, eros \
+                                            felis dapibus ante, at tincidunt diam magna eget turpis. Fusce porttitor at odio ac pretium. Maecenas semper semper \
+                                            massa, non suscipit nisl cursus in. Fusce sed lacinia ex.</p>\
+                                        </div>\
+                                    </row>\
+                                </div>\
+                                <hr class=\"my-4\" />\
+                                <div class=\"row my-4\">\
+                                    <div class=\"row mx-auto my-2\">\
+                                        <div class=\"col-sm-*\"><h1 id=\"lisaosat\"><u>Lisäosat</u></h1></div>\
+                                    </div>\
+                                    <row class=\"row justify-content-center\">\
+                                        <div class=\"col-sm-10\">\
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est diam, vulputate sed risus nec, fermentum mattis \
+                                            tortor. Donec nec volutpat lectus. Pellentesque fringilla enim id est commodo, nec scelerisque risus varius. Fusce et \
+                                            efficitur nibh. Cras id libero velit. Aliquam bibendum justo et tellus convallis, quis ullamcorper turpis volutpat. \
+                                            Praesent nibh mauris, condimentum eget neque in, feugiat facilisis nunc. Nulla sit amet porttitor ligula. Sed sit \
+                                            amet nibh tristique, auctor lacus eget, feugiat magna. Duis diam odio, maximus vel posuere vitae, efficitur et velit. \
+                                            Cras rutrum est enim. Maecenas elementum, ante sed semper egestas, tortor sapien finibus neque, at vulputate justo \
+                                            lectus a ante. Nulla auctor neque quis rhoncus sollicitudin. Morbi fermentum vestibulum magna. Nulla mollis venenatis \
+                                            augue vel ultrices. Donec posuere cursus sem et interdum. Sed non erat elit. Pellentesque scelerisque arcu vitae ipsum \
+                                            blandit, vitae scelerisque mi fringilla. Nulla facilisi. Vestibulum mollis dui a enim pharetra, quis venenatis purus \
+                                            elementum. In feugiat risus sed tempor porttitor. Etiam facilisis diam maximus risus ultricies vehicula. Integer sed \
+                                            viverra risus, non porta tortor. Nulla lacinia orci nec sodales mattis. Aenean vehicula, sem at ultricies porta, eros \
+                                            felis dapibus ante, at tincidunt diam magna eget turpis. Fusce porttitor at odio ac pretium. Maecenas semper semper \
+                                            massa, non suscipit nisl cursus in. Fusce sed lacinia ex.</p>\
+                                        </div>\
+                                    </row>\
+                                </div>\
+                            </div>";
+
+            //////////
+            // Pakat
+            //////////
+            var pakat = "<div class=\"mx-4 my-4\">\
+                            <div class=\"row justify-content-center my-8\">\
+                                <div class=\"row col-12 justify-content-center\">\
+                                    <h4>Navigointi</h4>\
+                                </div>\
+                                <div class=\"row my-2\">\
+                                    <div class=\" col-sm-* mx-4 flex justify-content-center\">\
+                                        <a class=\"linkki\" href=\"#parhaatpakat\">Parhaat pakat</a>\
+                                    </div>\
+                                    <div class=\" col-sm-* mx-4 flex justify-content-center\">\
+                                        <a class=\"linkki\" href=\"#budjettipakat\">Budjettipakat</a>\
+                                    </div>\
+                                </div>\
+                            </div>\
+                            <hr class=\"my-4\" />\
+                            <div class=\"row justify-content-center my-8\">\
+                                <div class=\"row col-12 justify-content-center\">\
+                                    <h2 id=\"parhaatpakat\">Pelin parhaat pakat tällä hetkellä</h2>\
+                                </div>\
+                            </div>\
+                            <hr class=\"my-4\" />\
+                            <div class=\"row\">\
+                                <div class=\"col-lg-12 col-xl-8\">\
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est diam, vulputate sed risus nec, fermentum mattis \
+                                        tortor. Donec nec volutpat lectus. Pellentesque fringilla enim id est commodo, nec scelerisque risus varius. Fusce et \
+                                        efficitur nibh. Cras id libero velit. Aliquam bibendum justo et tellus convallis, quis ullamcorper turpis volutpat. \
+                                        Praesent nibh mauris, condimentum eget neque in, feugiat facilisis nunc. Nulla sit amet porttitor ligula. Sed sit \
+                                        amet nibh tristique, auctor lacus eget, feugiat magna. Duis diam odio, maximus vel posuere vitae, efficitur et velit. \
+                                        Cras rutrum est enim. Maecenas elementum, ante sed semper egestas, tortor sapien finibus neque, at vulputate justo \
+                                        lectus a ante. Nulla auctor neque quis rhoncus sollicitudin. Morbi fermentum vestibulum magna. Nulla mollis venenatis \
+                                        augue vel ultrices. Donec posuere cursus sem et interdum. Sed non erat elit. Pellentesque scelerisque arcu vitae ipsum \
+                                        blandit, vitae scelerisque mi fringilla. Nulla facilisi. Vestibulum mollis dui a enim pharetra, quis venenatis purus \
+                                        elementum. In feugiat risus sed tempor porttitor. Etiam facilisis diam maximus risus ultricies vehicula. Integer sed \
+                                        viverra risus, non porta tortor. Nulla lacinia orci nec sodales mattis. Aenean vehicula, sem at ultricies porta, eros \
+                                        felis dapibus ante, at tincidunt diam magna eget turpis. Fusce porttitor at odio ac pretium. Maecenas semper semper \
+                                        massa, non suscipit nisl cursus in. Fusce sed lacinia ex.</p>\
+                                    </div>\
+                                    <div class=\"col-lg-12 col-xl-4\">\
+                                        <table class=\"right\">\
+                                            <tr>\
+                                                <td><b>0</b></td>\
+                                                <td><b>BACKSTAB</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>0</b></td>\
+                                                <td><b>SHADOWSTEP</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>1</b></td>\
+                                                <td><b>PHARAOH CAT</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>1</b></td>\
+                                                <td><b>PRAISE GALAKROND!</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>EVISCERATE</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>SAP</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>EVIL MISCREANT</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>EDWIN VANCLEEF</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>SI:7 AGENT</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>SEAL FATE</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>4</b></td>\
+                                                <td><b>DEVOTED MANIAC</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>5</b></td>\
+                                                <td><b>FACELESS CORRUPTOR</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>5</b></td>\
+                                                <td><b>LEEROY JENKINS</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>5</b></td>\
+                                                <td><b>SHIELD OF GALAKROND</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>6</b></td>\
+                                                <td><b>FLIK SKYSHIV</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>6</b></td>\
+                                                <td><b>HEISTBARON TOGWAGGLE</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>6</b></td>\
+                                                <td><b>KRONX DRAGONHOOF</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>7</b></td>\
+                                                <td><b>GALAKROND, THE NIGHTMARE</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                        </table>\
+                                    </div>\
+                            </div>\
+                            <hr class=\"my-4\" />\
+                            <div class=\"row\">\
+                                <div class=\"col-lg-12 col-xl-8\">\
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est diam, vulputate sed risus nec, fermentum mattis \
+                                        tortor. Donec nec volutpat lectus. Pellentesque fringilla enim id est commodo, nec scelerisque risus varius. Fusce et \
+                                        efficitur nibh. Cras id libero velit. Aliquam bibendum justo et tellus convallis, quis ullamcorper turpis volutpat. \
+                                        Praesent nibh mauris, condimentum eget neque in, feugiat facilisis nunc. Nulla sit amet porttitor ligula. Sed sit \
+                                        amet nibh tristique, auctor lacus eget, feugiat magna. Duis diam odio, maximus vel posuere vitae, efficitur et velit. \
+                                        Cras rutrum est enim. Maecenas elementum, ante sed semper egestas, tortor sapien finibus neque, at vulputate justo \
+                                        lectus a ante. Nulla auctor neque quis rhoncus sollicitudin. Morbi fermentum vestibulum magna. Nulla mollis venenatis \
+                                        augue vel ultrices. Donec posuere cursus sem et interdum. Sed non erat elit. Pellentesque scelerisque arcu vitae ipsum \
+                                        blandit, vitae scelerisque mi fringilla. Nulla facilisi. Vestibulum mollis dui a enim pharetra, quis venenatis purus \
+                                        elementum. In feugiat risus sed tempor porttitor. Etiam facilisis diam maximus risus ultricies vehicula. Integer sed \
+                                        viverra risus, non porta tortor. Nulla lacinia orci nec sodales mattis. Aenean vehicula, sem at ultricies porta, eros \
+                                        felis dapibus ante, at tincidunt diam magna eget turpis. Fusce porttitor at odio ac pretium. Maecenas semper semper \
+                                        massa, non suscipit nisl cursus in. Fusce sed lacinia ex.</p>\
+                                </div>\
+                                <div class=\"col-lg-12 col-xl-4\">\
+                                    <table class=\"right\">\
+                                            <tr>\
+                                                <td><b>1</b></td>\
+                                                <td><b>CLEAR THE WAY</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>1</b></td>\
+                                                <td><b>SPRINGPAW</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>1</b></td>\
+                                                <td><b>TRACKING</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>1</b></td>\
+                                                <td><b>UNSEAL THE VAULT</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>HENCH-CLAN HOGSTEED</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>LICENSED ADVENTURER</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>QUESTING EXPLORER</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>DESERT SPEAR</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>DIVING GRYPHON</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>SN1P-SN4P</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>UNLEASH THE HOUNDS</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>4</b></td>\
+                                                <td><b>SKY GEN'RAL KRAGG</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>5</b></td>\
+                                                <td><b>FACELESS CORRUPTOR</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>5</b></td>\
+                                                <td><b>HALAZZI, THE LYNX</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>5</b></td>\
+                                                <td><b>LEEROY JENKINS</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>5</b></td>\
+                                                <td><b>ZILLIAX</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>6</b></td>\
+                                                <td><b>SWARM OF LOCUSTS</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>6</b></td>\
+                                                <td><b>VERANUS</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>7</b></td>\
+                                                <td><b>BOOMMASTER FLARK</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>7</b></td>\
+                                                <td><b>SHU'MA</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                    </table>\
+                                </div>\
+                            </div>\
+                            <hr class=\"my-4\" />\
+                            <div class=\"row\">\
+                                <div class=\"col-lg-12 col-xl-8\">\
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est diam, vulputate sed risus nec, fermentum mattis \
+                                        tortor. Donec nec volutpat lectus. Pellentesque fringilla enim id est commodo, nec scelerisque risus varius. Fusce et \
+                                        efficitur nibh. Cras id libero velit. Aliquam bibendum justo et tellus convallis, quis ullamcorper turpis volutpat. \
+                                        Praesent nibh mauris, condimentum eget neque in, feugiat facilisis nunc. Nulla sit amet porttitor ligula. Sed sit \
+                                        amet nibh tristique, auctor lacus eget, feugiat magna. Duis diam odio, maximus vel posuere vitae, efficitur et velit. \
+                                        Cras rutrum est enim. Maecenas elementum, ante sed semper egestas, tortor sapien finibus neque, at vulputate justo \
+                                        lectus a ante. Nulla auctor neque quis rhoncus sollicitudin. Morbi fermentum vestibulum magna. Nulla mollis venenatis \
+                                        augue vel ultrices. Donec posuere cursus sem et interdum. Sed non erat elit. Pellentesque scelerisque arcu vitae ipsum \
+                                        blandit, vitae scelerisque mi fringilla. Nulla facilisi. Vestibulum mollis dui a enim pharetra, quis venenatis purus \
+                                        elementum. In feugiat risus sed tempor porttitor. Etiam facilisis diam maximus risus ultricies vehicula. Integer sed \
+                                        viverra risus, non porta tortor. Nulla lacinia orci nec sodales mattis. Aenean vehicula, sem at ultricies porta, eros \
+                                        felis dapibus ante, at tincidunt diam magna eget turpis. Fusce porttitor at odio ac pretium. Maecenas semper semper \
+                                        massa, non suscipit nisl cursus in. Fusce sed lacinia ex.</p>\
+                                    </div>\
+                                    <div class=\"col-lg-12 col-xl-4\">\
+                                        <table class=\"right\">\
+                                            <tr>\
+                                                <td><b>1</b></td>\
+                                                <td><b>ACORNBEARER</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>1</b></td>\
+                                                <td><b>TREENFORCEMENTS</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>DENDROLOGIST</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>RISING WINDS</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>SHRUBADIER</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>BLESSING OF THE ANCIENTS</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>LANDSCAPING</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>SAVAGE ROAR</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>4</b></td>\
+                                                <td><b>GARDEN GNOME</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>4</b></td>\
+                                                <td><b>SOUL OF THE FOREST</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>5</b></td>\
+                                                <td><b>AEROPONICS</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>5</b></td>\
+                                                <td><b>ANUBISATH DEFENDER</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>5</b></td>\
+                                                <td><b>FORCE OF NATURE</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>7</b></td>\
+                                                <td><b>GORU THE MIGHTREE</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>8</b></td>\
+                                                <td><b>THE FOREST'S AID</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>9</b></td>\
+                                                <td><b>MULCHMUNCHER</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                        </table>\
+                                    </div>\
+                            </div>\
+                            <hr class=\"my-4\" />\
+                            <div class=\"row justify-content-center my-8\">\
+                                <div class=\"row col-12 justify-content-center\">\
+                                    <h2 id=\"budjettipakat\">Budjetti pakat</h2>\
+                                </div>\
+                            </div>\
+                            <hr class=\"my-4\" />\
+                            <div class=\"row\">\
+                                <div class=\"col-lg-12 col-xl-4\">\
+                                    <table class=\"left\">\
+                                            <tr>\
+                                                <td><b>1</b></td>\
+                                                <td><b>ACORNBEARER</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>1</b></td>\
+                                                <td><b>TREENFORCEMENTS</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>DENDROLOGIST</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>DREAMWAY GUARDIANS</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>POWER OF THE WILD</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>SHRUBADIER</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>BLESSING OF THE ANCIENTS</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>LANDSCAPING</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>SAVAGE ROAR</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>4</b></td>\
+                                                <td><b>GARDEN GNOME</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>4</b></td>\
+                                                <td><b>SOUL OF THE FOREST</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>4</b></td>\
+                                                <td><b>SWIPE</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>5</b></td>\
+                                                <td><b>AEROPONICS</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>7</b></td>\
+                                                <td><b>OVERFLOW</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>8</b></td>\
+                                                <td><b>FOREST'S AID</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>9</b></td>\
+                                                <td><b>MULCHMUNCHER</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                    </table>\
+                                </div>\
+                                <div class=\"col-lg-12 col-xl-8\">\
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est diam, vulputate sed risus nec, fermentum mattis \
+                                        tortor. Donec nec volutpat lectus. Pellentesque fringilla enim id est commodo, nec scelerisque risus varius. Fusce et \
+                                        efficitur nibh. Cras id libero velit. Aliquam bibendum justo et tellus convallis, quis ullamcorper turpis volutpat. \
+                                        Praesent nibh mauris, condimentum eget neque in, feugiat facilisis nunc. Nulla sit amet porttitor ligula. Sed sit \
+                                        amet nibh tristique, auctor lacus eget, feugiat magna. Duis diam odio, maximus vel posuere vitae, efficitur et velit. \
+                                        Cras rutrum est enim. Maecenas elementum, ante sed semper egestas, tortor sapien finibus neque, at vulputate justo \
+                                        lectus a ante. Nulla auctor neque quis rhoncus sollicitudin. Morbi fermentum vestibulum magna. Nulla mollis venenatis \
+                                        augue vel ultrices. Donec posuere cursus sem et interdum. Sed non erat elit. Pellentesque scelerisque arcu vitae ipsum \
+                                        blandit, vitae scelerisque mi fringilla. Nulla facilisi. Vestibulum mollis dui a enim pharetra, quis venenatis purus \
+                                        elementum. In feugiat risus sed tempor porttitor. Etiam facilisis diam maximus risus ultricies vehicula. Integer sed \
+                                        viverra risus, non porta tortor. Nulla lacinia orci nec sodales mattis. Aenean vehicula, sem at ultricies porta, eros \
+                                        felis dapibus ante, at tincidunt diam magna eget turpis. Fusce porttitor at odio ac pretium. Maecenas semper semper \
+                                        massa, non suscipit nisl cursus in. Fusce sed lacinia ex.</p>\
+                                </div>\
+                            </div>\
+                            <hr class=\"my-4\" />\
+                            <div class=\"row\">\
+                                <div class=\"col-lg-12 col-xl-4\">\
+                                    <table class=\"left\">\
+                                            <tr>\
+                                                <td><b>1</b></td>\
+                                                <td><b>ARCANE SHOT</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>1</b></td>\
+                                                <td><b>DRARWEN SHARPSHOOTER</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>1</b></td>\
+                                                <td><b>RAPID FIRE</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>1</b></td>\
+                                                <td><b>TRACKING</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>1</b></td>\
+                                                <td><b>LEPER GNOME</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>KOBOLD SANDTROOPER</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>SPELLZERKER</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>EXPLOSIVE TRAP</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>FREEZING TRAP</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>MISDIRECTION</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>PHASE STALKER</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>ANIMAL COMPANION</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>EAGLEHORN BOW</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>KILL COMMAND</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>UNLEASH THE HOUNDS</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>IRONBEAK OWL</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>4</b></td>\
+                                                <td><b>LIFEDRINKER</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                    </table>\
+                                </div>\
+                                <div class=\"col-lg-12 col-xl-8\">\
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est diam, vulputate sed risus nec, fermentum mattis \
+                                        tortor. Donec nec volutpat lectus. Pellentesque fringilla enim id est commodo, nec scelerisque risus varius. Fusce et \
+                                        efficitur nibh. Cras id libero velit. Aliquam bibendum justo et tellus convallis, quis ullamcorper turpis volutpat. \
+                                        Praesent nibh mauris, condimentum eget neque in, feugiat facilisis nunc. Nulla sit amet porttitor ligula. Sed sit \
+                                        amet nibh tristique, auctor lacus eget, feugiat magna. Duis diam odio, maximus vel posuere vitae, efficitur et velit. \
+                                        Cras rutrum est enim. Maecenas elementum, ante sed semper egestas, tortor sapien finibus neque, at vulputate justo \
+                                        lectus a ante. Nulla auctor neque quis rhoncus sollicitudin. Morbi fermentum vestibulum magna. Nulla mollis venenatis \
+                                        augue vel ultrices. Donec posuere cursus sem et interdum. Sed non erat elit. Pellentesque scelerisque arcu vitae ipsum \
+                                        blandit, vitae scelerisque mi fringilla. Nulla facilisi. Vestibulum mollis dui a enim pharetra, quis venenatis purus \
+                                        elementum. In feugiat risus sed tempor porttitor. Etiam facilisis diam maximus risus ultricies vehicula. Integer sed \
+                                        viverra risus, non porta tortor. Nulla lacinia orci nec sodales mattis. Aenean vehicula, sem at ultricies porta, eros \
+                                        felis dapibus ante, at tincidunt diam magna eget turpis. Fusce porttitor at odio ac pretium. Maecenas semper semper \
+                                        massa, non suscipit nisl cursus in. Fusce sed lacinia ex.</p>\
+                                </div>\
+                            </div>\
+                            <hr class=\"my-4\" />\
+                            <div class=\"row\">\
+                                <div class=\"col-lg-12 col-xl-4\">\
+                                    <table class=\"left\">\
+                                            <tr>\
+                                                <td><b>1</b></td>\
+                                                <td><b>VIOLET SPELLWING</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>1</b></td>\
+                                                <td><b>SECRETKEEPER</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>SUNREAVER SPY</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>ANCIENT MYSTERIES</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>ARCANE FLAKMAGE</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>FROSTBOLT</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>2</b></td>\
+                                                <td><b>SORCERER'S APPRENTICE</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>ARCANE INTELLECT</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>COUNTERSPELL</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>FLAME WARD</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>KIRIN TOR MAGE</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>3</b></td>\
+                                                <td><b>MIRROR ENTITY</b></td>\
+                                                <td><b>1</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>4</b></td>\
+                                                <td><b>LIFEDRINKER</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>4</b></td>\
+                                                <td><b>ETHEREAL ARCANIST</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>4</b></td>\
+                                                <td><b>FIREBALL</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                            <tr>\
+                                                <td><b>5</b></td>\
+                                                <td><b>CLOUD PRINCE</b></td>\
+                                                <td><b>2</b></td>\
+                                            </tr>\
+                                    </table>\
+                                </div>\
+                                <div class=\"col-lg-12 col-xl-8\">\
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est diam, vulputate sed risus nec, fermentum mattis \
+                                        tortor. Donec nec volutpat lectus. Pellentesque fringilla enim id est commodo, nec scelerisque risus varius. Fusce et \
+                                        efficitur nibh. Cras id libero velit. Aliquam bibendum justo et tellus convallis, quis ullamcorper turpis volutpat. \
+                                        Praesent nibh mauris, condimentum eget neque in, feugiat facilisis nunc. Nulla sit amet porttitor ligula. Sed sit \
+                                        amet nibh tristique, auctor lacus eget, feugiat magna. Duis diam odio, maximus vel posuere vitae, efficitur et velit. \
+                                        Cras rutrum est enim. Maecenas elementum, ante sed semper egestas, tortor sapien finibus neque, at vulputate justo \
+                                        lectus a ante. Nulla auctor neque quis rhoncus sollicitudin. Morbi fermentum vestibulum magna. Nulla mollis venenatis \
+                                        augue vel ultrices. Donec posuere cursus sem et interdum. Sed non erat elit. Pellentesque scelerisque arcu vitae ipsum \
+                                        blandit, vitae scelerisque mi fringilla. Nulla facilisi. Vestibulum mollis dui a enim pharetra, quis venenatis purus \
+                                        elementum. In feugiat risus sed tempor porttitor. Etiam facilisis diam maximus risus ultricies vehicula. Integer sed \
+                                        viverra risus, non porta tortor. Nulla lacinia orci nec sodales mattis. Aenean vehicula, sem at ultricies porta, eros \
+                                        felis dapibus ante, at tincidunt diam magna eget turpis. Fusce porttitor at odio ac pretium. Maecenas semper semper \
+                                        massa, non suscipit nisl cursus in. Fusce sed lacinia ex.</p>\
+                                </div>\
+                            </div>\
+                        </div>";
+            //////////////////
+            // Battlegrounds
+            //////////////////
+            var battlegrounds = "<div class=\"mx-4 my-4\">\
+                                    <div class=\"row justify-content-center my-8\">\
+                                        <div class=\"row col-12 justify-content-center\">\
+                                            <h4>Navigointi</h4>\
+                                        </div>\
+                                        <div class=\"row my-2\">\
+                                            <div class=\"col-xs-12 col-md-6 flex justify-content-center\">\
+                                                <a class=\"linkki\" href=\"#hahmot\">Hahmot</a>\
+                                            </div>\
+                                            <div class=\"col-xs-12 col-md-6 flex justify-content-center\">\
+                                                <a class=\"linkki\" href=\"#korttientasot\">Korttien tasot</a>\
+                                            </div>\
+                                            <div class=\"col-xs-12 col-md-6 flex justify-content-center\">\
+                                                <a class=\"linkki\" href=\"#kulta\">Kulta</a>\
+                                            </div>\
+                                            <div class=\"col-xs-12 col-md-6 flex justify-content-center\">\
+                                                <a class=\"linkki\" href=\"#korttienyhdistaminen\">Korttien yhdistäminen</a>\
+                                            </div>\
+                                            <div class=\"col-xs-12 col-md-6 flex justify-content-center\">\
+                                                <a class=\"linkki\" href=\"#katyrienmaara\">Kätyrien määrä</a>\
+                                            </div>\
+                                        </div>\
+                                    </div>\
+                                    <hr class=\"my-4\" />\
+                                    <div class=\"row justify-content-center\">\
+                                        <img class=\"img-fluid\" src=\"Kuvat/Battlegrounds_Screen.png\">\
+                                    </div>\
+                                    <hr class=\"my-4\" />\
+                                    <div class=\"row my-4\">\
+                                        <div class=\"row col-12 mx-auto my-2 justify-content-center\">\
+                                            <div class=\"col-sm-*\"><h1 id=\"hahmot\"><u>Hahmot</u></h1></div>\
+                                        </div>\
+                                        <div class=\"row col-12 mx-auto my-3\">\
+                                            <div class=\"col-xs-12 col-md-6 col-xl-3\">\
+                                                <h3>Parhaat</h3>\
+                                                <ul>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/Yogg-Saron,_Hope%27s_End_(Battlegrounds)\" target=\"_blank\">Yogg-Saron, Hope’s End</a></li>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/Dancin%27_Deryl_(Battlegrounds)\" target=\"_blank\">Dancin’ Deryl</a></li>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/Arch-Villain_Rafaam_(Battlegrounds)\" target=\"_blank\">Arch-Villain Rafaam</a></li>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/Edwin_VanCleef_(Battlegrounds)\" target=\"_blank\">Edwin VanCleef</a></li>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/Tirion_Fordring_(Battlegrounds)\" target=\"_blank\">Tirion Fordring</a></li>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/A._F._Kay_(Battlegrounds)\" target=\"_blank\">A. F. Kay</a></li>\
+                                                </ul>\
+                                            </div>\
+                                            <div class=\"col-xs-12 col-md-6 col-xl-3\">\
+                                                <h3>Hyvät</h3>\
+                                                <ul>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/The_Curator_(Battlegrounds)\" target=\"_blank\">The Curator</a></li>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/Nefarian_(Battlegrounds)\" target=\"_blank\">Nefarian</a></li>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/Elise_Starseeker_(Battlegrounds)\" target=\"_blank\">Elise Starseeker</a></li>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/Sindragosa_(Battlegrounds)\" target=\"_blank\">Sindragosa</a></li>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/Infinite_Toki_(Battlegrounds)\" target=\"_blank\">Infinite Toki</a></li>\
+                                                </ul>\
+                                            </div>\
+                                            <div class=\"col-xs-12 col-md-6 col-xl-3\">\
+                                                <h3>Ok</h3>\
+                                                <ul>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/The_Lich_King_(Battlegrounds)\" target=\"_blank\">The Lich King</a></li>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/Queen_Wagtoggle_(Battlegrounds)\" target=\"_blank\">Queen Wagtoggle</a></li>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/Ragnaros_the_Firelord_(Battlegrounds)\" target=\"_blank\">Ragnaros the Firelord</a></li>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/Patches_the_Pirate_(Battlegrounds)\" target=\"_blank\">Patches the Pirate</a></li>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/The_Rat_King_(Battlegrounds)\" target=\"_blank\">The Rat King</a></li>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/The_Great_Akazamzarak_(Battlegrounds)\" target=\"_blank\">The Great Akazamzarak</a></li>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/Shudderwock_(Battlegrounds)\" target=\"_blank\">Shudderwock</a></li>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/Millificent_Manastorm_(Battlegrounds)\" target=\"_blank\">Millificent Manastorm</a></li>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/George_the_Fallen_(Battlegrounds)\" target=\"_blank\">George the Fallen</a></li>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/Bartendotron_(Battlegrounds)\" target=\"_blank\">Bartendotron</a></li>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/Lich_Baz%27hial_(Battlegrounds)\" target=\"_blank\">Lich Baz’hial</a></li>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/Lord_Jaraxxus_(Battlegrounds)\" target=\"_blank\">Lord Jaraxxus</a></li>\
+                                                </ul>\
+                                            </div>\
+                                            <div class=\"col-xs-12 col-md-6 col-xl-3\">\
+                                                <h3>Ei niin hyvät</h3>\
+                                                <ul>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/Millhouse_Manastorm_(Battlegrounds)\" target=\"_blank\">Millhouse Manastorm</a></li>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/Patchwerk_(Battlegrounds)\" target=\"_blank\">Patchwerk</a></li>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/Pyramad_(Battlegrounds)\" target=\"_blank\">Pyramad</a></li>\
+                                                    <li><a href=\"https://hearthstone.gamepedia.com/Sylvanas_Windrunner_(Battlegrounds)\" target=\"_blank\">Sylvanas Windrunner</a></li>\
+                                                </ul>\
+                                            </div>\
+                                        </div>\
+                                    </div>\
+                                    <hr class=\"my-4\" />\
+                                    <div class=\"row my-4\">\
+                                        <div class=\"row mx-auto my-2\">\
+                                            <div class=\"col-sm-*\"><h1 id=\"korttientasot\"><u>Korttien tasot</u></h1></div>\
+                                        </div>\
+                                        <div class=\"row justify-content-center\">\
+                                            <div class=\"col-sm-10\">\
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est diam, vulputate sed risus nec, fermentum mattis \
+                                                tortor. Donec nec volutpat lectus. Pellentesque fringilla enim id est commodo, nec scelerisque risus varius. Fusce et \
+                                                efficitur nibh. Cras id libero velit. Aliquam bibendum justo et tellus convallis, quis ullamcorper turpis volutpat. \
+                                                Praesent nibh mauris, condimentum eget neque in, feugiat facilisis nunc. Nulla sit amet porttitor ligula. Sed sit \
+                                                amet nibh tristique, auctor lacus eget, feugiat magna. Duis diam odio, maximus vel posuere vitae, efficitur et velit. \
+                                                Cras rutrum est enim. Maecenas elementum, ante sed semper egestas, tortor sapien finibus neque, at vulputate justo \
+                                                lectus a ante. Nulla auctor neque quis rhoncus sollicitudin. Morbi fermentum vestibulum magna. Nulla mollis venenatis \
+                                                augue vel ultrices. Donec posuere cursus sem et interdum. Sed non erat elit. Pellentesque scelerisque arcu vitae ipsum \
+                                                blandit, vitae scelerisque mi fringilla. Nulla facilisi. Vestibulum mollis dui a enim pharetra, quis venenatis purus \
+                                                elementum. In feugiat risus sed tempor porttitor. Etiam facilisis diam maximus risus ultricies vehicula. Integer sed \
+                                                viverra risus, non porta tortor. Nulla lacinia orci nec sodales mattis. Aenean vehicula, sem at ultricies porta, eros \
+                                                felis dapibus ante, at tincidunt diam magna eget turpis. Fusce porttitor at odio ac pretium. Maecenas semper semper \
+                                                massa, non suscipit nisl cursus in. Fusce sed lacinia ex.</p>\
+                                            </div>\
+                                        </div>\
+                                    </div>\
+                                    <hr class=\"my-4\" />\
+                                    <div class=\"row my-4\">\
+                                        <div class=\"row mx-auto my-2\">\
+                                            <div class=\"col-sm-*\"><h1 id=\"kulta\"><u>Kulta</u></h1></div>\
+                                        </div>\
+                                        <div class=\"row justify-content-center\">\
+                                            <div class=\"col-sm-10\">\
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est diam, vulputate sed risus nec, fermentum mattis \
+                                                tortor. Donec nec volutpat lectus. Pellentesque fringilla enim id est commodo, nec scelerisque risus varius. Fusce et \
+                                                efficitur nibh. Cras id libero velit. Aliquam bibendum justo et tellus convallis, quis ullamcorper turpis volutpat. \
+                                                Praesent nibh mauris, condimentum eget neque in, feugiat facilisis nunc. Nulla sit amet porttitor ligula. Sed sit \
+                                                amet nibh tristique, auctor lacus eget, feugiat magna. Duis diam odio, maximus vel posuere vitae, efficitur et velit. \
+                                                Cras rutrum est enim. Maecenas elementum, ante sed semper egestas, tortor sapien finibus neque, at vulputate justo \
+                                                lectus a ante. Nulla auctor neque quis rhoncus sollicitudin. Morbi fermentum vestibulum magna. Nulla mollis venenatis \
+                                                augue vel ultrices. Donec posuere cursus sem et interdum. Sed non erat elit. Pellentesque scelerisque arcu vitae ipsum \
+                                                blandit, vitae scelerisque mi fringilla. Nulla facilisi. Vestibulum mollis dui a enim pharetra, quis venenatis purus \
+                                                elementum. In feugiat risus sed tempor porttitor. Etiam facilisis diam maximus risus ultricies vehicula. Integer sed \
+                                                viverra risus, non porta tortor. Nulla lacinia orci nec sodales mattis. Aenean vehicula, sem at ultricies porta, eros \
+                                                felis dapibus ante, at tincidunt diam magna eget turpis. Fusce porttitor at odio ac pretium. Maecenas semper semper \
+                                                massa, non suscipit nisl cursus in. Fusce sed lacinia ex.</p>\
+                                            </div>\
+                                        </div>\
+                                    </div>\
+                                    <hr class=\"my-4\" />\
+                                    <div class=\"row my-4\">\
+                                        <div class=\"row mx-auto my-2\">\
+                                            <div class=\"col-sm-*\"><h1 id=\"korttienyhdistaminen\"><u>Korttien yhdistäminen</u></h1></div>\
+                                        </div>\
+                                        <div class=\"row justify-content-center\">\
+                                            <div class=\"col-sm-10\">\
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est diam, vulputate sed risus nec, fermentum mattis \
+                                                tortor. Donec nec volutpat lectus. Pellentesque fringilla enim id est commodo, nec scelerisque risus varius. Fusce et \
+                                                efficitur nibh. Cras id libero velit. Aliquam bibendum justo et tellus convallis, quis ullamcorper turpis volutpat. \
+                                                Praesent nibh mauris, condimentum eget neque in, feugiat facilisis nunc. Nulla sit amet porttitor ligula. Sed sit \
+                                                amet nibh tristique, auctor lacus eget, feugiat magna. Duis diam odio, maximus vel posuere vitae, efficitur et velit. \
+                                                Cras rutrum est enim. Maecenas elementum, ante sed semper egestas, tortor sapien finibus neque, at vulputate justo \
+                                                lectus a ante. Nulla auctor neque quis rhoncus sollicitudin. Morbi fermentum vestibulum magna. Nulla mollis venenatis \
+                                                augue vel ultrices. Donec posuere cursus sem et interdum. Sed non erat elit. Pellentesque scelerisque arcu vitae ipsum \
+                                                blandit, vitae scelerisque mi fringilla. Nulla facilisi. Vestibulum mollis dui a enim pharetra, quis venenatis purus \
+                                                elementum. In feugiat risus sed tempor porttitor. Etiam facilisis diam maximus risus ultricies vehicula. Integer sed \
+                                                viverra risus, non porta tortor. Nulla lacinia orci nec sodales mattis. Aenean vehicula, sem at ultricies porta, eros \
+                                                felis dapibus ante, at tincidunt diam magna eget turpis. Fusce porttitor at odio ac pretium. Maecenas semper semper \
+                                                massa, non suscipit nisl cursus in. Fusce sed lacinia ex.</p>\
+                                            </div>\
+                                        </div>\
+                                    </div>\
+                                    <hr class=\"my-4\" />\
+                                    <div class=\"row my-4\">\
+                                        <div class=\"row mx-auto my-2\">\
+                                            <div class=\"col-sm-*\"><h1 id=\"katyrienmaara\"><u>Kätyrien määrä</u></h1></div>\
+                                        </div>\
+                                        <div class=\"row justify-content-center\">\
+                                            <div class=\"col-sm-10\">\
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est diam, vulputate sed risus nec, fermentum mattis \
+                                                tortor. Donec nec volutpat lectus. Pellentesque fringilla enim id est commodo, nec scelerisque risus varius. Fusce et \
+                                                efficitur nibh. Cras id libero velit. Aliquam bibendum justo et tellus convallis, quis ullamcorper turpis volutpat. \
+                                                Praesent nibh mauris, condimentum eget neque in, feugiat facilisis nunc. Nulla sit amet porttitor ligula. Sed sit \
+                                                amet nibh tristique, auctor lacus eget, feugiat magna. Duis diam odio, maximus vel posuere vitae, efficitur et velit. \
+                                                Cras rutrum est enim. Maecenas elementum, ante sed semper egestas, tortor sapien finibus neque, at vulputate justo \
+                                                lectus a ante. Nulla auctor neque quis rhoncus sollicitudin. Morbi fermentum vestibulum magna. Nulla mollis venenatis \
+                                                augue vel ultrices. Donec posuere cursus sem et interdum. Sed non erat elit. Pellentesque scelerisque arcu vitae ipsum \
+                                                blandit, vitae scelerisque mi fringilla. Nulla facilisi. Vestibulum mollis dui a enim pharetra, quis venenatis purus \
+                                                elementum. In feugiat risus sed tempor porttitor. Etiam facilisis diam maximus risus ultricies vehicula. Integer sed \
+                                                viverra risus, non porta tortor. Nulla lacinia orci nec sodales mattis. Aenean vehicula, sem at ultricies porta, eros \
+                                                felis dapibus ante, at tincidunt diam magna eget turpis. Fusce porttitor at odio ac pretium. Maecenas semper semper \
+                                                massa, non suscipit nisl cursus in. Fusce sed lacinia ex.</p>\
+                                            </div>\
+                                        </div>\
+                                    </div>\
+                                </div>";
+        </script>
+    </body>
+</html>
